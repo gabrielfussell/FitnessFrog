@@ -44,6 +44,12 @@ namespace Treehouse.FitnessFrog.Controllers
             return View();
         }
 
+        [ActionName("Add"), HttpPost]
+        public ActionResult AddPost()
+        {
+            return View();
+        }
+
         //here int must be nullable in order for routing to happen correctly
         public ActionResult Edit(int? id)
         {
