@@ -39,16 +39,28 @@ namespace Treehouse.FitnessFrog.Controllers
             return View(entries);
         }
 
+        //GET version
         public ActionResult Add()
         {
-            return View();
+            Entry entry = new Entry()
+            {
+                Date = DateTime.Today
+            };
+
+            return View(entry);
         }
 
         [HttpPost]
-        public ActionResult Add(DateTime? date, int? activityId, double? duration
-            , Entry.IntensityLevel? intensity, bool? exclude, string notes)
+        public ActionResult Add(Entry entry)
         {
-            return View();
+            if(ModelState.IsValid)
+            {
+                _entriesRepository.AddEntry(entry);
+
+                //TODO Display the Entries list page
+            }
+
+            return View(entry);
         }
 
         //here int must be nullable in order for routing to happen correctly
