@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "Add Entry";
+
 }
 
 <h2>@ViewBag.Title</h2>
@@ -14,14 +15,19 @@
 
             <div class="form-group">
                 @Html.LabelFor(m => m.Date, new { @class = "control-label" })
-                <!-- <label for="Date" class="control-label">Date</label> -->
+                @*<label for="Date" class="control-label">Date</label>*@
                 @Html.TextBoxFor(m => m.Date, "{0:d}", new { @class = "form-control" })
-                <!-- <input type="text" id="Date" name="Date" class="form-control" value="@ViewBag.Date" /> -->
+                @*<input type="text" id="Date" name="Date" class="form-control" value="@ViewBag.Date" />*@
             </div>
 
             <div class="form-group">
                 @Html.LabelFor(m => m.ActivityId, new { @class = "control-label" })
-                @Html.TextBoxFor(m => m.ActivityId, new { @class = "form-control" })
+                @Html.DropDownListFor(m => m.ActivityId, (SelectList)ViewBag.ActivitiesSelectListItems, "", new { @class = "form-control" })
+
+
+                @*<option value = "1">Item 1</option>
+                <option value = "2" selected>Item 2</option>*@
+
             </div>
 
             <div class="form-group">
@@ -45,8 +51,8 @@
 
             <div class="form-group">
                 @Html.LabelFor(m => m.Notes, new { @class = "control-label" })
-                @Html.TextAreaFor(m => m.Notes, 14, 20, new { @class = "form-control"})
-                <textarea id="Notes" name="Notes" class="form-control" rows="14" cols="20">@ViewBag.Notes</textarea>
+                @Html.TextAreaFor(m => m.Notes, 14, 20, new { @class = "form-control" })
+                @* <textarea id="Notes" name="Notes" class="form-control" rows="14" cols="20">@ViewBag.Notes</textarea> *@
             </div>
 
         </div>
