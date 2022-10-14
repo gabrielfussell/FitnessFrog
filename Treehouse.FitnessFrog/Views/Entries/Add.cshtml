@@ -8,10 +8,12 @@
 
 <h2>@ViewBag.Title</h2>
 
-@Html.ValidationSummary("The following errors were found:", new { @class = "alert alert-danger"})
+
 
 @using (Html.BeginForm())
 {
+    @Html.ValidationSummary("The following errors were found:", new { @class = "alert alert-danger" })
+
     <div class="row">
 
         <div class="col-md-6">
@@ -30,7 +32,7 @@
 
 
                 @*<option value = "1">Item 1</option>
-                <option value = "2" selected>Item 2</option>*@
+                    <option value = "2" selected>Item 2</option>*@
 
             </div>
 
@@ -43,20 +45,20 @@
                 @Html.LabelFor(m => m.Intensity, new { @class = "control-label" })
                 <div>
                     @*<label class="radio-inline">
-                        @Html.RadioButtonFor(m => m.Intensity, Entry.IntensityLevel.Low) @Entry.IntensityLevel.Low
-                    </label>
-                    <label class="radio-inline">
-                        @Html.RadioButtonFor(m => m.Intensity, Entry.IntensityLevel.Medium) @Entry.IntensityLevel.Medium
-                    </label>
-                    <label class="radio-inline">
-                        @Html.RadioButtonFor(m => m.Intensity, Entry.IntensityLevel.High) @Entry.IntensityLevel.High
-                    </label>*@
+                            @Html.RadioButtonFor(m => m.Intensity, Entry.IntensityLevel.Low) @Entry.IntensityLevel.Low
+                        </label>
+                        <label class="radio-inline">
+                            @Html.RadioButtonFor(m => m.Intensity, Entry.IntensityLevel.Medium) @Entry.IntensityLevel.Medium
+                        </label>
+                        <label class="radio-inline">
+                            @Html.RadioButtonFor(m => m.Intensity, Entry.IntensityLevel.High) @Entry.IntensityLevel.High
+                        </label>*@
 
-                    @foreach(Entry.IntensityLevel intensity in Enum.GetValues(typeof(Entry.IntensityLevel)))
+                    @foreach (Entry.IntensityLevel intensity in Enum.GetValues(typeof(Entry.IntensityLevel)))
                     {
-                    <label class="radio-inline">
-                        @Html.RadioButtonFor(m => m.Intensity, intensity) @intensity
-                    </label>   
+                        <label class="radio-inline">
+                            @Html.RadioButtonFor(m => m.Intensity, intensity) @intensity
+                        </label>
                     }
 
                 </div>
@@ -69,7 +71,7 @@
                     </label>
                 </div>
             </div>
-            
+
 
         </div>
 
